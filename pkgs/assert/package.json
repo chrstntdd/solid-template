@@ -1,0 +1,21 @@
+{
+  "name": "@private_org/assert",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "type": "module",
+  "main": "./dist/mod.cjs",
+  "module": "./dist/mod.js",
+  "types": "./dist/types/assert.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/mod.js",
+      "require": "./dist/mod.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build-full": "pnpm build && pnpm emit-types",
+    "build": "node make.js",
+    "emit-types": "tsc --emitDeclarationOnly"
+  }
+}

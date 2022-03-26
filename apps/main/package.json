@@ -1,0 +1,116 @@
+{
+  "name": "main",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "bun vite",
+    "build": "vite build",
+    "fmt": "prettier src --write",
+    "lint:fix": "eslint src/ --fix",
+    "lint": "eslint 'src/**'",
+    "tc": "tsc --noEmit",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@private_org/assert": "workspace:^1.0.0",
+    "@private_org/solid-img": "workspace:^1.0.0",
+    "solid-js": "^1.3.13"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.3",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "@vanilla-extract/css": "^1.6.8",
+    "@vanilla-extract/vite-plugin": "^3.1.4",
+    "eslint": "^8.11.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "jsdom": "^19.0.0",
+    "polished": "^4.1.4",
+    "solid-testing-library": "^0.3.0",
+    "tsm": "^2.2.1",
+    "vite": "^2.8.6",
+    "vite-plugin-solid": "^2.2.6",
+    "vitest": "^0.7.11"
+  },
+  "eslintConfig": {
+    "settings": {
+      "import/resolver": {
+        "typescript": {}
+      }
+    },
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "prettier",
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "*.ts",
+          "*.tsx"
+        ],
+        "parserOptions": {
+          "project": [
+            "./tsconfig.json"
+          ]
+        }
+      },
+      {
+        "files": [
+          "*.spec.ts",
+          "*.spec.tsx"
+        ],
+        "rules": {
+          "@typescript-eslint/ban-ts-comment": 0
+        }
+      }
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "import"
+    ],
+    "rules": {
+      "prefer-const": 0,
+      "@typescript-eslint/no-extra-semi": 0,
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_",
+          "caughtErrorsIgnorePattern": "^_"
+        }
+      ]
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "useTabs": false
+  },
+  "browserslist": [
+    "> 2%",
+    "not IE <= 11",
+    "not dead",
+    "no op_mini all"
+  ]
+}
